@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: dev
+
+server:
+  port: 8001
+
+mybatis-plus:
+  mapper-locations: classpath*:com.cql/**/mapper/*.xml
+  type-aliases-package: com.cql.**.entity
+
+

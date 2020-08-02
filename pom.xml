@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.cql</groupId>
+    <artifactId>Blog</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>commons</module>
+        <module>service</module>
+        <module>blog</module>
+        <module>admin</module>
+    </modules>
+
+<!--  管理版本  -->
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <spring-boot-dependencies.version>2.1.7.RELEASE</spring-boot-dependencies.version>
+        <fastjson.version>1.2.68</fastjson.version>
+        <mybatis-plus-boot-starter.version>3.1.2</mybatis-plus-boot-starter.version>
+        <shiro-spring.version>1.4.0</shiro-spring.version>
+        <java-jwt.version>3.2.0</java-jwt.version>
+        <springfox-swagger2.version>2.8.0</springfox-swagger2.version>
+        <shiro-redis.version>3.2.3</shiro-redis.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
+        <commons-lang3.version>3.9</commons-lang3.version>
+        <joda-time.version>2.9.9</joda-time.version>
+        <easyexcel.version>1.1.2-beta4</easyexcel.version>
+        <commons-io.version>2.6</commons-io.version>
+        <httpclient.version>4.5.9</httpclient.version>
+        <aliyun-java-sdk-core.version>4.4.3</aliyun-java-sdk-core.version>
+        <aliyun-java-sdk-dysmsapi.version>1.1.0</aliyun-java-sdk-dysmsapi.version>
+        <aliyun-sdk-oss.version>3.6.0</aliyun-sdk-oss.version>
+        <cors-filter.version>2.6</cors-filter.version>
+        <ehcache.version>2.10.6</ehcache.version>
+        <httpmime.version>4.5.9</httpmime.version>
+        <hutool.version>5.0.7</hutool.version>
+        <lombok.version>1.18.12</lombok.version>
+        <lombok.version>1.18.12</lombok.version>
+    </properties>
+
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!--     lobmcok   -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <dependency>
+                <!-- Import dependency management from Spring Boot -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <scope>test</scope>
+                <version>${spring-boot-dependencies.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.junit.vintage</groupId>
+                        <artifactId>junit-vintage-engine</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
+
+
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>
