@@ -43,7 +43,8 @@
         <httpmime.version>4.5.9</httpmime.version>
         <hutool.version>5.0.7</hutool.version>
         <lombok.version>1.18.12</lombok.version>
-        <lombok.version>1.18.12</lombok.version>
+        <shiro.version>1.5.3</shiro.version>
+        <thymeleaf.version>2.1.7.RELEASE</thymeleaf.version>
     </properties>
 
 
@@ -83,6 +84,17 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-thymeleaf</artifactId>
+                <version>${thymeleaf.version}</version>
             </dependency>
 
 
