@@ -2,6 +2,7 @@ package com.cql.admin.controller;
 
 
 import com.cql.commons.moudel.Result;
+import com.cql.user.entity.Cat;
 import com.cql.user.entity.Dog;
 import com.cql.user.entity.User;
 import com.cql.user.service.UserService;
@@ -23,10 +24,14 @@ public class UserController {
     @Autowired
     private Dog dog;  //注入dog配置
 
+    @Autowired
+    private Cat cat;  //注入配置
+
 
     @GetMapping("/configure/test")
     public Result<Boolean> test(){
         System.out.println(dog);
+        System.out.println(cat);
         return Result.genSuccessResult("操作成功",true);
     }
 

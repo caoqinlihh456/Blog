@@ -1,15 +1,27 @@
 package com.cql.admin;
 
+import com.cql.user.entity.Cat;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
-@ComponentScan(basePackages = {"com.cql"}) //包扫描
+@RunWith(SpringRunner.class)
 class AdminApplicationTests {
 
+    @Autowired
+    private Cat cat;
+
     @Test
-    void contextLoads() {
+    public void contextLoads() {
+        System.out.println(cat);
+    }
+
+    @Test
+    public void asd(){
+
     }
 
 }
