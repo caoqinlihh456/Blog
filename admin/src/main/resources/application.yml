@@ -10,3 +10,5 @@ mybatis-plus:
   type-aliases-package: com.cql.**.entity
 
 
+dog:
+  name: cql

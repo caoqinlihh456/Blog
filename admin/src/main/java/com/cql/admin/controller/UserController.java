@@ -2,6 +2,7 @@ package com.cql.admin.controller;
 
 
 import com.cql.commons.moudel.Result;
+import com.cql.user.entity.Dog;
 import com.cql.user.entity.User;
 import com.cql.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController  //
 @RequestMapping("/user")
 @Validated
@@ -21,11 +20,14 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private Dog dog;  //注入dog配置
 
-    @GetMapping("/test")
-    public Result<List<User>> test(){
-        List<User> list = userService.list();
-        return Result.genSuccessResult("操作成功", list);
+
+    @GetMapping("/configure/test")
+    public Result<Boolean> test(){
+        System.out.println(dog);
+        return Result.genSuccessResult("操作成功",true);
     }
 
     @GetMapping("/add")

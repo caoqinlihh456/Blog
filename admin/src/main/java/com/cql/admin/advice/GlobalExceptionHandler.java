@@ -20,7 +20,7 @@ public class GlobalExceptionHandler {
 
 
     /**
-     * 友好提示拦截参数异常  对ConstraintViolationException异常进行处理
+     * 友好提示拦截参数异常  对ConstraintViolationException异常进行处理  //拦截异常友好提示
      * @param ex
      * @return
      */

@@ -42,7 +42,8 @@ public class ShiroConfig {
 		filterMap.put("/testThymeleaf", "anon");
 		//放行login.html页面
 		filterMap.put("/login", "anon");
-		
+		filterMap.put("/user/test", "anon");
+
 		//授权过滤器
 		//注意：当前授权拦截后，shiro会自动跳转到未授权页面
 //		filterMap.put("/add", "perms[user:add]");
