@@ -1,9 +1,7 @@
-package com.cql.admin.controller;
+package com.cql.blog.controller;
 
 
 import com.cql.commons.moudel.Result;
-import com.cql.user.entity.Cat;
-import com.cql.user.entity.Dog;
 import com.cql.user.entity.User;
 import com.cql.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -23,22 +21,16 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private Dog dog;  //注入dog配置
 
-    @Autowired
-    private Cat cat;  //注入配置
-
-
-    @GetMapping("/configure/test")
+    @GetMapping("/test")
     public Result<Boolean> test(){
-        System.out.println(dog);
-        System.out.println(cat);
-        log.debug("deg");
-        log.info("info");
-        log.warn("warn");
-        log.error("error");
-        log.trace("trace");
+//        System.out.println(dog);
+//        System.out.println(cat);
+        log.debug("deg11");
+        log.info("info11");
+        log.warn("warn11");
+        log.error("error11");
+        log.trace("trace11");
         return Result.genSuccessResult("操作成功",true);
     }
 

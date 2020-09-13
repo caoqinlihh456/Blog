@@ -4,6 +4,7 @@ package com.cql.admin.controller;
 import com.cql.commons.moudel.Result;
 import com.cql.user.entity.User;
 import com.cql.user.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -19,6 +20,7 @@ import javax.validation.constraints.NotBlank;
 
 @RestController
 @Validated
+@Slf4j
 public class LoginController {
 
     @Autowired
