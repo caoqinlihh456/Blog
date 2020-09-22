@@ -43,6 +43,8 @@ public class ShiroConfig {
 		//放行login.html页面
 		filterMap.put("/login", "anon");
 		filterMap.put("/user/configure/test", "anon");
+		filterMap.put("/user/redis/query", "anon");
+		filterMap.put("/user/redis/update", "anon");
 
 		//授权过滤器
 		//注意：当前授权拦截后，shiro会自动跳转到未授权页面
