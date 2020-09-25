@@ -8,4 +8,7 @@ import com.cql.user.entity.User;
 public interface UserService extends IService<User> {
 
 
+    Boolean delete();
+
+
 }
