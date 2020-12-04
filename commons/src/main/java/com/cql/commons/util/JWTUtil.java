@@ -29,8 +29,8 @@ public class JWTUtil {
      * 过期时间为一天
      * TODO 正式上线更换为15分钟
      */
-//    public static final long EXPIRE_TIME = 24 * 60 * 60 * 1000;
-    public static final long EXPIRE_TIME = 1000 * 60;
+    public static final long EXPIRE_TIME = 24 * 60 * 60 * 1000;
+//    public static final long EXPIRE_TIME = 1000 * 60;
 
     /**
      * token私钥

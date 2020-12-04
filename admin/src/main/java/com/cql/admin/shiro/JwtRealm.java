@@ -62,12 +62,12 @@ public class JwtRealm extends AuthorizingRealm {
         //1.判断用户名
         com.cql.commons.moudel.shiro.UsernamePasswordToken token = (com.cql.commons.moudel.shiro.UsernamePasswordToken) arg0;
         if (!JWTUtil.verity(token.getToken())) {
-            throw new ServiceException("token校验失败");
+            throw new AuthenticationException("token校验失败");
         }
         //获取redis中数据
         String json = (String) redisUtil.get(token.getToken());
         if (json == null) {
-            throw new ServiceException("redis中token数据已失效");
+            throw new AuthenticationException("redis中token数据已失效");
         }
         User user = JSONObject.parseObject(json, User.class);
         return new SimpleAuthenticationInfo(user, "", getName());

@@ -11,6 +11,9 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController  //
 @Validated
 @Slf4j
@@ -22,10 +25,10 @@ public class AsyncController {
     @GetMapping("/asyns/test")
 //    @RequiresRoles(value = {"admin","youhu"})//角色
 //    @RequiresPermissions("user:delete")//权限
-    public Result<Boolean> test() {
+    public Result<Map<String,User>> test() {
 //        Boolean delete = userService.delete();
         User user = (User) SecurityUtils.getSubject().getPrincipal();
         System.out.println(user);
-        return Result.genSuccessResult("操作成功", true);
+        return Result.genSuccessResult("操作成功", new HashMap<>());
     }
 }

@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController  //
 @RequestMapping("/user")
 @Validated
@@ -34,7 +37,7 @@ public class UserController {
 
 
     @GetMapping("/configure/test")
-    public Result<Boolean> test(){
+    public Result<Boolean> test() {
         System.out.println(dog);
         System.out.println(cat);
         log.debug("deg");
@@ -42,36 +45,47 @@ public class UserController {
         log.warn("warn");
         log.error("error");
         log.trace("trace");
-        return Result.genSuccessResult("操作成功",true);
+        return Result.genSuccessResult("操作成功", true);
     }
 
     /**
      * 测试缓存     查询 更新 删除
+     *
      * @return
      */
     @GetMapping("/redis/query")
-    @Cacheable(cacheNames = "user")
-    public Result<User> queryRedis(@RequestParam Long id){
+    @Cacheable(cacheNames = "user", key = "#id + '-'+#id2")
+    public Result<Map<String, User>> queryRedis(@RequestParam Long id, Long id2) {
         System.out.println(dog);
         User user = userService.getById(id);
-        return Result.genSuccessResult("操作成功",user);
+        return Result.genSuccessResult("操作成功", new HashMap<>());
     }
+
+    @GetMapping("/redis/query2")
+    @Cacheable(cacheNames = "user2", key = "#id + '-'+#id2")
+    public Result<Map<String, User>> queryRedis2(@RequestParam Long id, Long id2) {
+        System.out.println(dog);
+        User user = userService.getById(id);
+        HashMap<String, User> objectObjectHashMap = new HashMap<>();
+        objectObjectHashMap.put("1", new User());
+        return Result.genSuccessResult("操作成功", objectObjectHashMap);
+    }
+
 
     @GetMapping("/redis/update")
 //    @CachePut(cacheNames = "user",key = "#id") //编辑缓存
-    @CacheEvict(cacheNames = "user",key = "#id")//删除缓存
-    public Result<Boolean> updateQuery(@RequestParam Long id){
+    @CacheEvict(cacheNames = {"user"},allEntries = true)//删除缓存
+    public Result<Boolean> updateQuery(@RequestParam Long id, Long id2) {
         User user = new User();
         user.setId(1L);
         user.setName("修改缓存");
         userService.updateById(user);
-        return Result.genSuccessResult("操作成功",true);
+        return Result.genSuccessResult("操作成功", true);
     }
 
 
-
     @GetMapping("/add")
-    public Result<Boolean> add(){
+    public Result<Boolean> add() {
         User user = new User();
         user.setName("哈哈哈啊哈哈");
         userService.save(user);
@@ -79,9 +93,9 @@ public class UserController {
     }
 
     @GetMapping("/thymeleafTest")
-    public String add(Model model){
+    public String add(Model model) {
         //数据存入model
-        model.addAttribute("name","cql在学习");
+        model.addAttribute("name", "cql在学习");
         //返回test.html
         return "test";
     }
