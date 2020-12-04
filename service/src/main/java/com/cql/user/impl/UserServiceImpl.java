@@ -21,10 +21,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public Boolean delete() {
-        userMapper.deleteById(1);
-        String test = anyncService.test();
-        System.out.println("异步的返回调用:"+test);
-        int a = 1/ 0;
+//        userMapper.deleteById(1);
+//        String test = anyncService.test();
+//        System.out.println("异步的返回调用:"+test);
+//        int a = 1/ 0;
 
         return true;
     }

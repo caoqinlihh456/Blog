@@ -1,4 +1,4 @@
-package com.cql.commons.config;
+package com.cql.commons.config.asyn;
 
 import org.springframework.core.task.TaskDecorator;
 import org.springframework.web.context.request.RequestAttributes;

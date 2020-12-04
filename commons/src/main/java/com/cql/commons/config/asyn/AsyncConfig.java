@@ -1,4 +1,4 @@
-package com.cql.commons.config;
+package com.cql.commons.config.asyn;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

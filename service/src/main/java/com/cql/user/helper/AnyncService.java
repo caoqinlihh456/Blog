@@ -1,6 +1,6 @@
 package com.cql.user.helper;
 
-import com.cql.commons.config.AsyncConfig;
+import com.cql.commons.config.asyn.AsyncConfig;
 import com.cql.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;

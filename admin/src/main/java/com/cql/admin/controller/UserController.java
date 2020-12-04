@@ -1,7 +1,7 @@
 package com.cql.admin.controller;
 
 
-import com.cql.commons.moudel.Result;
+import com.cql.commons.moudel.system.Result;
 import com.cql.user.entity.Cat;
 import com.cql.user.entity.Dog;
 import com.cql.user.entity.User;

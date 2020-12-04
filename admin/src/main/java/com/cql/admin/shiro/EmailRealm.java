@@ -18,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  *
  * @author lenovo
  */
-public class UserRealm extends AuthorizingRealm {
+public class EmailRealm extends AuthorizingRealm {
 
 
     @Autowired
@@ -29,20 +29,17 @@ public class UserRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection arg0) {
-        System.out.println("执行授权逻辑");
-
+        System.out.println("执行授权逻辑111111111111111111111111");
         //给资源进行授权
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-
-        //添加资源的授权字符串
-        //info.addStringPermission("user:add");
-
         //到数据库查询当前登录用户的授权字符串
         //获取当前登录用户
         Subject subject = SecurityUtils.getSubject();
         User user = (User) subject.getPrincipal();
-//		info.addStringPermission(dbUser.getPerms());
-
+        //todo 业务获取权限或角色
+        //添加资源的授权字符串
+//        info.addStringPermission("user:delete");
+        info.addRole("admin");
         return info;
     }
 
@@ -52,7 +49,7 @@ public class UserRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken arg0) throws AuthenticationException {
-        System.out.println("执行认证逻辑");
+        System.out.println("执行邮箱认证逻辑");
 
         //编写shiro判断逻辑，判断用户名和密码
         //1.判断用户名
@@ -64,7 +61,7 @@ public class UserRealm extends AuthorizingRealm {
 
         if (user == null) {
             //用户名不存在
-            return null;//shiro底层会抛出UnKnowAccountException
+            throw new UnknownAccountException();
         }
 
         //2.判断密码
@@ -74,7 +71,7 @@ public class UserRealm extends AuthorizingRealm {
     @Override
     public boolean supports(AuthenticationToken token) {
         if (token instanceof com.cql.commons.moudel.shiro.UsernamePasswordToken) {
-            return ((com.cql.commons.moudel.shiro.UsernamePasswordToken) token).getLoginType() == LoginType.USER_PASSWORD;
+            return ((com.cql.commons.moudel.shiro.UsernamePasswordToken) token).getLoginType() == LoginType.USER_EMAIL;
         } else {
             return false;
         }
@@ -82,7 +79,7 @@ public class UserRealm extends AuthorizingRealm {
 
     @Override
     public String getName() {
-        return LoginType.USER_PASSWORD.getType();
+        return LoginType.USER_EMAIL.getType();
     }
 
 

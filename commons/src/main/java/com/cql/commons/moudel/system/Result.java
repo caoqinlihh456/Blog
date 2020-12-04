@@ -1,4 +1,4 @@
-package com.cql.commons.moudel;
+package com.cql.commons.moudel.system;
 
 import java.io.Serializable;
 

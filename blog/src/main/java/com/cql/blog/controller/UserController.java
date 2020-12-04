@@ -1,7 +1,7 @@
 package com.cql.blog.controller;
 
 
-import com.cql.commons.moudel.Result;
+import com.cql.commons.moudel.system.Result;
 import com.cql.user.entity.User;
 import com.cql.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
