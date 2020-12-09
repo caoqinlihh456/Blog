@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional(rollbackFor = Throwable.class)
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService{
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
     @Autowired
     private UserMapper userMapper;

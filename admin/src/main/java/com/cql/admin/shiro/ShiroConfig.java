@@ -55,6 +55,7 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/testThymeleaf", "anon");
         //放行login.html页面
         filterChainDefinitionMap.put("/login", "anon");
+        filterChainDefinitionMap.put("/es/**", "anon");
         filterChainDefinitionMap.put("/user/configure/test", "anon");
         filterChainDefinitionMap.put("/user/redis/query", "anon");
         filterChainDefinitionMap.put("/user/redis/update", "anon");

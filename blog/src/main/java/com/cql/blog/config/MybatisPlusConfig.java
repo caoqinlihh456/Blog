@@ -16,7 +16,7 @@ import java.util.Properties;
  * @Description: mybatis-plus配置类
  */
 @Configuration
-@MapperScan("com.cql.**.mapper")
+@MapperScan("com.cql.**.dao")
 public class MybatisPlusConfig {
 
     /**

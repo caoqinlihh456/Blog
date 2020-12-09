@@ -1,7 +1,6 @@
 package com.cql.admin.shiro;
 
 import com.alibaba.fastjson.JSONObject;
-import com.cql.commons.exception.ServiceException;
 import com.cql.commons.moudel.shiro.LoginType;
 import com.cql.commons.util.JWTUtil;
 import com.cql.commons.util.RedisUtil;

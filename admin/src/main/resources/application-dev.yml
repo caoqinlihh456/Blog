@@ -5,6 +5,19 @@ spring:
     username: root
     password: 1q2w3e4R!@
 
+  data:
+    elasticsearch:
+        repositories:
+          enabled: true
+        cluster-name: myEs
+        cluster-nodes: 127.0.0.1:9300
+        #cluster-nodes: hadoop137:9300,hadoop138:9300,hadoop139:9300
+
 dog:
   name: cql
+
+#elasticsearch:
+#  host: 127.0.0.1
+#  port: 9200
+
 

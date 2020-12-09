@@ -1,7 +1,8 @@
 spring:
   profiles:
     active: dev
-
+  #main: #解决包冲突
+    #allow-bean-definition-overriding: true
 server:
   port: 8002
 
