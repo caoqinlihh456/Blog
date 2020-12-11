@@ -1,6 +1,8 @@
 package com.cql.admin.controller;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cql.commons.moudel.system.Result;
 import com.cql.user.entity.Cat;
 import com.cql.user.entity.Dog;
@@ -80,6 +82,7 @@ public class UserController {
         user.setId(1L);
         user.setName("修改缓存");
         userService.updateById(user);
+        IPage<User> page = userService.page(new Page<>(1, 0));
         return Result.genSuccessResult("操作成功", true);
     }
 
