@@ -3,6 +3,8 @@ package com.cql.admin.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.cql.commons.group.Add;
+import com.cql.commons.group.Update;
 import com.cql.commons.moudel.system.Result;
 import com.cql.user.entity.Cat;
 import com.cql.user.entity.Dog;
@@ -14,10 +16,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,15 +37,13 @@ public class UserController {
     private Cat cat;  //注入配置
 
 
-    @GetMapping("/configure/test")
-    public Result<Boolean> test() {
-        System.out.println(dog);
-        System.out.println(cat);
-        log.debug("deg");
-        log.info("info");
-        log.warn("warn");
-        log.error("error");
-        log.trace("trace");
+    @PostMapping("/configure/test")
+    public Result<Boolean> test(@RequestBody @Validated({Add.class, Update.class}) User user) {
+//        log.debug("deg");
+//        log.info("info");
+//        log.warn("warn");
+//        log.error("error");
+//        log.trace("trace");
         return Result.genSuccessResult("操作成功", true);
     }
 

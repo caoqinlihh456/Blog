@@ -38,8 +38,9 @@ public class EmailRealm extends AuthorizingRealm {
         User user = (User) subject.getPrincipal();
         //todo 业务获取权限或角色
         //添加资源的授权字符串
-//        info.addStringPermission("user:delete");
+        info.addStringPermission("user:delete");
         info.addRole("admin");
+        info.addRole("youhu");
         return info;
     }
 

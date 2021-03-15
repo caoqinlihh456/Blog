@@ -6,6 +6,8 @@ import com.cql.user.entity.User;
 import com.cql.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,8 +25,8 @@ public class AsyncController {
     private UserService userService;
 
     @GetMapping("/asyns/test")
-//    @RequiresRoles(value = {"admin","youhu"})//角色
-//    @RequiresPermissions("user:delete")//权限
+    @RequiresRoles(value = {"admin","youhu"})//需要角色
+    @RequiresPermissions("user:delete")//需要权限
     public Result<Map<String,User>> test() {
 //        Boolean delete = userService.delete();
         User user = (User) SecurityUtils.getSubject().getPrincipal();

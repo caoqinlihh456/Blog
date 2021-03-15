@@ -1,9 +1,13 @@
 package com.cql.admin.advice;
 
+import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.cql.commons.exception.ServiceException;
 import com.cql.commons.moudel.system.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.UnauthorizedException;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -33,6 +37,19 @@ public class GlobalExceptionHandler {
                 .map(ConstraintViolation::getMessage)
                 .collect(Collectors.toList());
         return Result.genErrorResult(-1, errorInfo.toString());
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Result validationErrorHandler(MethodArgumentNotValidException ex) {
+        BindingResult bindingResult = ex.getBindingResult();
+        List<FieldError> errorList = bindingResult.getFieldErrors();
+        String err = "";
+        if(CollectionUtils.isNotEmpty(errorList)){
+            for (FieldError error : errorList) {
+                err += error.getDefaultMessage()+",";
+            }
+        }
+        return Result.genErrorResult(-1, err);
     }
 
 
