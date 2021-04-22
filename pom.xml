@@ -43,7 +43,7 @@
         <httpmime.version>4.5.9</httpmime.version>
         <hutool.version>5.0.7</hutool.version>
         <lombok.version>1.18.12</lombok.version>
-        <shiro.version>1.5.3</shiro.version>
+        <shiro.version>1.7.0</shiro.version>
         <thymeleaf.version>2.1.7.RELEASE</thymeleaf.version>
     </properties>
 
